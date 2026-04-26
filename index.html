@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Planificador de Torneos de Fútbol</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <h1>⚽ Planificador de Torneos de Fútbol</h1>
+      <p>Crea equipos, genera fases y organiza tu torneo fácilmente.</p>
+    </header>
+
+    <main>
+      <section class="card">
+        <h2>1) Configuración del torneo</h2>
+        <label for="tournamentName">Nombre del torneo</label>
+        <input id="tournamentName" type="text" placeholder="Ej. Copa del Barrio 2026" />
+
+        <div class="grid two-cols">
+          <div>
+            <label for="format">Formato</label>
+            <select id="format">
+              <option value="round-robin">Liga (todos contra todos)</option>
+              <option value="knockout">Eliminación directa</option>
+            </select>
+          </div>
+          <div>
+            <label for="startDate">Fecha de inicio</label>
+            <input id="startDate" type="date" />
+          </div>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>2) Equipos</h2>
+        <div class="team-input-row">
+          <input id="teamName" type="text" placeholder="Nombre del equipo" />
+          <button id="addTeamBtn">Agregar equipo</button>
+        </div>
+        <ul id="teamsList" class="teams-list"></ul>
+      </section>
+
+      <section class="card actions">
+        <button id="generateBtn" class="primary">Generar calendario</button>
+        <button id="saveBtn">Guardar</button>
+        <button id="loadBtn">Cargar</button>
+        <button id="exportBtn">Exportar JSON</button>
+        <button id="resetBtn" class="danger">Reiniciar</button>
+      </section>
+
+      <section class="card" id="outputSection">
+        <h2>3) Partidos</h2>
+        <p id="summary"></p>
+        <div id="fixturesContainer"></div>
+      </section>
+    </main>
+
+    <template id="fixtureTemplate">
+      <article class="fixture">
+        <span class="date"></span>
+        <strong class="match"></strong>
+      </article>
+    </template>
+
+    <script src="app.js"></script>
+  </body>
+</html>
